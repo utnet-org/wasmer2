@@ -26,7 +26,6 @@ target_version = "2.1.0"
 # TODO: generate this by parsing toml files
 dep_graph = {
     "wasmer-types": set([]),
-    "wasmer-derive": set([]),
     "wasmer-vm": set(["wasmer-types"]),
     "wasmer-compiler": set(["wasmer-vm", "wasmer-types"]),
     "wasmer-engine": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
@@ -34,16 +33,12 @@ dep_graph = {
     "wasmer-compiler-cranelift": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-compiler-llvm": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-engine-universal": set(["wasmer-types", "wasmer-vm", "wasmer-compiler", "wasmer-engine"]),
-    "wasmer": set(["wasmer-vm", "wasmer-compiler-singlepass", "wasmer-compiler-cranelift",
-                   "wasmer-compiler-llvm", "wasmer-compiler", "wasmer-engine", "wasmer-engine-universal",
-                   "wasmer-types", "wasmer-derive"]),
 }
 
 # where each crate is located in the `lib` directory
 # TODO: this could also be generated from the toml files
 location = {
     "wasmer-types": "types",
-    "wasmer-derive": "derive",
     "wasmer-vm": "vm",
     "wasmer-compiler": "compiler",
     "wasmer-engine": "engine",
@@ -52,7 +47,6 @@ location = {
     "wasmer-compiler-llvm": "compiler-llvm",
     "wasmer-engine": "engine",
     "wasmer-engine-universal": "engine-universal",
-    "wasmer": "api",
 }
 
 no_dry_run = False
