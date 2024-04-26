@@ -1,5 +1,5 @@
 [package]
-name = "wasmer-engine-universal-unc"
+name = "wasmer-engine-universal-x"
 version = "2.4.1"
 description = "Wasmer Universal Engine"
 categories = ["wasm"]
@@ -14,10 +14,10 @@ edition = "2018"
 name = "wasmer_engine_universal"
 
 [dependencies]
-wasmer-types = { path = "../types", version = "=2.4.1", package = "wasmer-types-unc" }
-wasmer-compiler = { path = "../compiler", version = "=2.4.1", package = "wasmer-compiler-unc", features = ["translator"] }
-wasmer-vm = { path = "../vm", version = "=2.4.1", package = "wasmer-vm-unc" }
-wasmer-engine = { path = "../engine", package = "wasmer-engine-unc", version = "=2.4.1" }
+wasmer-types = { path = "../types", version = "=2.4.1", package = "wasmer-types-x" }
+wasmer-compiler = { path = "../compiler", version = "=2.4.1", package = "wasmer-compiler-x", features = ["translator"] }
+wasmer-vm = { path = "../vm", version = "=2.4.1", package = "wasmer-vm-x" }
+wasmer-engine = { path = "../engine", package = "wasmer-engine-x", version = "=2.4.1" }
 # flexbuffers = { path = "../../../flatbuffers/rust/flexbuffers", version = "0.1.0" }
 region = "3.0"
 cfg-if = "1.0"

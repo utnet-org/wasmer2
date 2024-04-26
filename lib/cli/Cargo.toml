@@ -24,16 +24,16 @@ doc = false
 required-features = ["headless"]
 
 [dependencies]
-wasmer = { version = "2.0.3", path = "../api", package = "wasmer-unc", default-features = false }
-wasmer-compiler = { version = "2.0.3", path = "../compiler", package = "wasmer-compiler-unc"  }
+wasmer = { version = "2.0.3", path = "../api", package = "wasmer-x", default-features = false }
+wasmer-compiler = { version = "2.0.3", path = "../compiler", package = "wasmer-compiler-x"  }
 wasmer-compiler-cranelift = { version = "2.0.0", path = "../compiler-cranelift", optional = true }
-wasmer-compiler-singlepass = { version = "2.0.3", path = "../compiler-singlepass", package = "wasmer-compiler-singlepass-unc", optional = true }
+wasmer-compiler-singlepass = { version = "2.0.3", path = "../compiler-singlepass", package = "wasmer-compiler-singlepass-x", optional = true }
 wasmer-compiler-llvm = { version = "2.0.0", path = "../compiler-llvm", optional = true }
-wasmer-engine = { version = "2.0.3", path = "../engine", package = "wasmer-engine-unc" }
-wasmer-engine-universal = { version = "2.0.3", path = "../engine-universal", package = "wasmer-engine-universal-unc", optional = true }
-wasmer-vm = { version = "2.0.3", path = "../vm", package = "wasmer-vm-unc" }
+wasmer-engine = { version = "2.0.3", path = "../engine", package = "wasmer-engine-x" }
+wasmer-engine-universal = { version = "2.0.3", path = "../engine-universal", package = "wasmer-engine-universal-x", optional = true }
+wasmer-vm = { version = "2.0.3", path = "../vm", package = "wasmer-vm-x" }
 wasmer-wast = { version = "2.0.0", path = "../../tests/lib/wast", optional = true }
-wasmer-types = { version = "2.0.3", path = "../types", package = "wasmer-types-unc" }
+wasmer-types = { version = "2.0.3", path = "../types", package = "wasmer-types-x" }
 atty = "0.2"
 colored = "2.0"
 anyhow = "1.0"

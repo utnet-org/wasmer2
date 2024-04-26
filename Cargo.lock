@@ -1715,9 +1715,9 @@ dependencies = [
  "wasm-smith",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
- "wasmer-compiler-singlepass-unc",
- "wasmer-engine-universal-unc",
- "wasmer-unc",
+ "wasmer-compiler-singlepass-x",
+ "wasmer-engine-universal-x",
+ "wasmer-x",
  "wasmprinter",
 ]
 
@@ -1736,9 +1736,9 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "tracing",
- "wasmer-compiler-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
 ]
 
 [[package]]
@@ -1758,13 +1758,13 @@ dependencies = [
  "semver 1.0.4",
  "smallvec",
  "target-lexicon",
- "wasmer-compiler-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
 ]
 
 [[package]]
-name = "wasmer-compiler-unc"
+name = "wasmer-compiler-x"
 version = "2.4.1"
 dependencies = [
  "enumset",
@@ -1773,13 +1773,13 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "thiserror",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-types-x",
+ "wasmer-vm-x",
  "wasmparser 0.78.2",
 ]
 
 [[package]]
-name = "wasmer-compiler-singlepass-unc"
+name = "wasmer-compiler-singlepass-x"
 version = "2.4.1"
 dependencies = [
  "byteorder",
@@ -1792,13 +1792,13 @@ dependencies = [
  "rayon",
  "smallvec",
  "target-lexicon",
- "wasmer-compiler-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
 ]
 
 [[package]]
-name = "wasmer-derive-unc"
+name = "wasmer-derive-x"
 version = "2.4.1"
 dependencies = [
  "compiletest_rs",
@@ -1806,11 +1806,11 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
- "wasmer-unc",
+ "wasmer-x",
 ]
 
 [[package]]
-name = "wasmer-engine-unc"
+name = "wasmer-engine-x"
 version = "2.4.1"
 dependencies = [
  "backtrace",
@@ -1821,13 +1821,13 @@ dependencies = [
  "rustc-demangle",
  "target-lexicon",
  "thiserror",
- "wasmer-compiler-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
 ]
 
 [[package]]
-name = "wasmer-engine-universal-unc"
+name = "wasmer-engine-universal-x"
 version = "2.4.1"
 dependencies = [
  "cfg-if",
@@ -1836,10 +1836,10 @@ dependencies = [
  "region",
  "rkyv",
  "thiserror",
- "wasmer-compiler-unc",
- "wasmer-engine-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-engine-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
  "winapi",
 ]
 
@@ -1848,7 +1848,7 @@ name = "wasmer-integration-tests-ios"
 version = "2.1.0"
 
 [[package]]
-name = "wasmer-unc"
+name = "wasmer-x"
 version = "2.4.1"
 dependencies = [
  "anyhow",
@@ -1860,19 +1860,19 @@ dependencies = [
  "thiserror",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
- "wasmer-compiler-unc",
- "wasmer-compiler-singlepass-unc",
- "wasmer-derive-unc",
- "wasmer-engine-unc",
- "wasmer-engine-universal-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-compiler-singlepass-x",
+ "wasmer-derive-x",
+ "wasmer-engine-x",
+ "wasmer-engine-universal-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
  "wat",
  "winapi",
 ]
 
 [[package]]
-name = "wasmer-types-unc"
+name = "wasmer-types-x"
 version = "2.4.1"
 dependencies = [
  "indexmap",
@@ -1881,7 +1881,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer-vm-unc"
+name = "wasmer-vm-x"
 version = "2.4.1"
 dependencies = [
  "backtrace",
@@ -1894,7 +1894,7 @@ dependencies = [
  "region",
  "rkyv",
  "thiserror",
- "wasmer-types-unc",
+ "wasmer-types-x",
  "winapi",
 ]
 
@@ -1905,7 +1905,7 @@ dependencies = [
  "anyhow",
  "tempfile",
  "thiserror",
- "wasmer-unc",
+ "wasmer-x",
  "wast",
 ]
 
@@ -1929,13 +1929,13 @@ dependencies = [
  "tracing-subscriber",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
- "wasmer-compiler-unc",
- "wasmer-compiler-singlepass-unc",
- "wasmer-engine-unc",
- "wasmer-engine-universal-unc",
- "wasmer-unc",
- "wasmer-types-unc",
- "wasmer-vm-unc",
+ "wasmer-compiler-x",
+ "wasmer-compiler-singlepass-x",
+ "wasmer-engine-x",
+ "wasmer-engine-universal-x",
+ "wasmer-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
  "wasmer-wast",
  "wat",
 ]
