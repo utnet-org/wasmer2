@@ -29,20 +29,14 @@ dep_graph = {
     "wasmer-derive": set([]),
     "wasmer-vm": set(["wasmer-types"]),
     "wasmer-compiler": set(["wasmer-vm", "wasmer-types"]),
-    "wasmer-object": set(["wasmer-types", "wasmer-compiler"]),
     "wasmer-engine": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-compiler-singlepass": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-compiler-cranelift": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-compiler-llvm": set(["wasmer-types", "wasmer-vm", "wasmer-compiler"]),
     "wasmer-engine-universal": set(["wasmer-types", "wasmer-vm", "wasmer-compiler", "wasmer-engine"]),
-    "wasmer-engine-dylib": set(["wasmer-types", "wasmer-vm", "wasmer-compiler", "wasmer-engine",
-                                 "wasmer-object"]),
-    "wasmer-engine-staticlib": set(["wasmer-types", "wasmer-vm", "wasmer-compiler", "wasmer-engine",
-                                      "wasmer-object"]),
     "wasmer": set(["wasmer-vm", "wasmer-compiler-singlepass", "wasmer-compiler-cranelift",
                    "wasmer-compiler-llvm", "wasmer-compiler", "wasmer-engine", "wasmer-engine-universal",
-                   "wasmer-engine-dylib", "wasmer-engine-staticlib", "wasmer-types", "wasmer-derive"]),
-    "wasmer-cache": set(["wasmer"]),
+                   "wasmer-types", "wasmer-derive"]),
 }
 
 # where each crate is located in the `lib` directory
@@ -52,16 +46,12 @@ location = {
     "wasmer-derive": "derive",
     "wasmer-vm": "vm",
     "wasmer-compiler": "compiler",
-    "wasmer-object": "object",
     "wasmer-engine": "engine",
     "wasmer-compiler-singlepass": "compiler-singlepass",
     "wasmer-compiler-cranelift": "compiler-cranelift",
     "wasmer-compiler-llvm": "compiler-llvm",
     "wasmer-engine": "engine",
     "wasmer-engine-universal": "engine-universal",
-    "wasmer-engine-dylib": "engine-dylib",
-    "wasmer-engine-staticlib": "engine-staticlib",
-    "wasmer-cache": "cache",
     "wasmer": "api",
 }
 
@@ -86,7 +76,7 @@ def is_crate_already_published(crate_name: str) -> bool:
 
 def publish_crate(crate: str):
     starting_dir = os.getcwd()
-    os.chdir("lib/{}".format(location[crate]))
+    os.chdir("../lib/{}".format(location[crate]))
 
     global no_dry_run
     if no_dry_run:
