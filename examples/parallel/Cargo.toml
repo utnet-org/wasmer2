@@ -10,5 +10,5 @@ license = "MIT"
 [dependencies]
 rayon = "1.2"
 time = "0.1"
-wasmer-runtime = { path = "../../lib/runtime", package = "wasmer-runtime-near" }
-wasmer-runtime-core = { path = "../../lib/runtime-core", package = "wasmer-runtime-core-near" }
+wasmer-runtime = { path = "../../lib/runtime", package = "wasmer-runtime-x" }
+wasmer-runtime-core = { path = "../../lib/runtime-core", package = "wasmer-runtime-core-x" }

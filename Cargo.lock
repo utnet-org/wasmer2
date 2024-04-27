@@ -1478,8 +1478,8 @@ version = "0.1.0"
 dependencies = [
  "rayon",
  "time",
- "wasmer-runtime-core-near",
- "wasmer-runtime-near",
+ "wasmer-runtime-core-x",
+ "wasmer-runtime-x",
 ]
 
 [[package]]
@@ -2777,8 +2777,8 @@ dependencies = [
  "serde",
  "wasmer-clif-backend",
  "wasmer-llvm-backend",
- "wasmer-runtime-core-near",
- "wasmer-singlepass-backend-near",
+ "wasmer-runtime-core-x",
+ "wasmer-singlepass-backend-x",
 ]
 
 [[package]]
@@ -2811,9 +2811,9 @@ dependencies = [
  "wasmer-kernel-loader",
  "wasmer-llvm-backend",
  "wasmer-middleware-common",
- "wasmer-runtime-core-near",
- "wasmer-runtime-near",
- "wasmer-singlepass-backend-near",
+ "wasmer-runtime-core-x",
+ "wasmer-runtime-x",
+ "wasmer-singlepass-backend-x",
  "wasmer-wasi",
  "wasmer-wasi-experimental-io-devices",
  "wasmer-wast",
@@ -2838,7 +2838,7 @@ dependencies = [
  "wasm-debug",
  "wasmer-clif-fork-frontend",
  "wasmer-clif-fork-wasm",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "wasmer-win-exception-handler",
  "wasmparser",
  "winapi 0.3.8",
@@ -2880,7 +2880,7 @@ dependencies = [
  "libc",
  "log",
  "time",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
 ]
 
 [[package]]
@@ -2888,7 +2888,7 @@ name = "wasmer-kernel-loader"
 version = "0.1.0"
 dependencies = [
  "libc",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
 ]
 
 [[package]]
@@ -2907,7 +2907,7 @@ dependencies = [
  "semver",
  "smallvec 1.4.0",
  "wabt",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "wasmparser",
  "winapi 0.3.8",
 ]
@@ -2916,7 +2916,7 @@ dependencies = [
 name = "wasmer-middleware-common"
 version = "0.17.1"
 dependencies = [
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
 ]
 
 [[package]]
@@ -2927,12 +2927,12 @@ dependencies = [
  "libc",
  "wasmer",
  "wasmer-emscripten",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "wasmer-wasi",
 ]
 
 [[package]]
-name = "wasmer-runtime-core-near"
+name = "wasmer-runtime-core-x"
 version = "0.18.1"
 dependencies = [
  "bincode",
@@ -2961,7 +2961,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer-runtime-near"
+name = "wasmer-runtime-x"
 version = "0.18.1"
 dependencies = [
  "criterion",
@@ -2973,12 +2973,12 @@ dependencies = [
  "wabt",
  "wasmer-clif-backend",
  "wasmer-llvm-backend",
- "wasmer-runtime-core-near",
- "wasmer-singlepass-backend-near",
+ "wasmer-runtime-core-x",
+ "wasmer-singlepass-backend-x",
 ]
 
 [[package]]
-name = "wasmer-singlepass-backend-near"
+name = "wasmer-singlepass-backend-x"
 version = "0.18.1"
 dependencies = [
  "bincode",
@@ -2992,7 +2992,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "smallvec 1.4.0",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
 ]
 
 [[package]]
@@ -3009,7 +3009,7 @@ dependencies = [
  "thiserror",
  "time",
  "typetag",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "winapi 0.3.8",
 ]
 
@@ -3022,7 +3022,7 @@ dependencies = [
  "ref_thread_local",
  "serde",
  "typetag",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "wasmer-wasi",
 ]
 
@@ -3042,7 +3042,7 @@ version = "0.17.1"
 dependencies = [
  "cc",
  "libc",
- "wasmer-runtime-core-near",
+ "wasmer-runtime-core-x",
  "winapi 0.3.8",
 ]
 

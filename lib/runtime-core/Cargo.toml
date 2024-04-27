@@ -1,5 +1,5 @@
 [package]
-name = "wasmer-runtime-core-near"
+name = "wasmer-runtime-core-x"
 version = "0.18.1"
 description = "Wasmer runtime core library"
 license = "MIT"
