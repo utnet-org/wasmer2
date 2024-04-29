@@ -71,13 +71,13 @@ fn main() -> anyhow::Result<()> {
     //
     // An `Instance` is a compiled WebAssembly module that has been set up
     // and is ready to execute.
-    let instance = Instance::new(&module, &import_object)?;
+    let instance: Instance = Instance::new(&module, &import_object)?;
 
     // We get the `NativeFunc` with no parameters and no results from the instance.
     //
     // Recall that the Wasm module exported a function named "run", this is getting
     // that exported function from the `Instance`.
-    let run_func: NativeFunc<(), ()> = instance.exports.get_native_function("run")?;
+    let run_func: NativeFunc<(), ()> = instance.get_native_function("run")?;
 
     // Finally, we call our exported Wasm function which will call our "say_hello"
     // function and return.

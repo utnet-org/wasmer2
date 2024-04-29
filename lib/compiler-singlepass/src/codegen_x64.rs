@@ -5404,7 +5404,7 @@ impl<'a> FuncGen<'a> {
 
                 self.update_max_stack_depth();
 
-                let mut frame = self.control_stack.last_mut().unwrap();
+                let frame = self.control_stack.last_mut().unwrap();
 
                 let released: &[Location] = &self.value_stack[frame.value_stack_depth..];
                 self.machine

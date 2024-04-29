@@ -15,7 +15,7 @@
 //! Ready?
 
 use std::mem;
-use wasmer::{imports, wat2wasm, Bytes, Instance, Module, NativeFunc, Pages, Store};
+use wasmer::{imports, wat2wasm, Bytes, Exports, Extern, Instance, Module, NativeFunc, Pages, Store};
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
 
@@ -73,10 +73,14 @@ fn main() -> anyhow::Result<()> {
     // The module exports some utility functions, let's get them.
     //
     // These function will be used later in this example.
-    let mem_size: NativeFunc<(), i32> = instance.exports.get_native_function("mem_size")?;
-    let get_at: NativeFunc<i32, i32> = instance.exports.get_native_function("get_at")?;
-    let set_at: NativeFunc<(i32, i32), ()> = instance.exports.get_native_function("set_at")?;
-    let memory = instance.exports.get_memory("memory")?;
+    let mem_size: NativeFunc<(), i32> = instance.get_native_function("mem_size")?;
+    let get_at: NativeFunc<i32, i32> = instance.get_native_function("get_at")?;
+    let set_at: NativeFunc<(i32, i32), ()> = instance.get_native_function("set_at")?;
+
+    let export = instance.lookup("memory").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("memory", Extern::from_vm_export(&store, export));
+    let memory = exports.get_memory("memory")?;
 
     // We now have an instance ready to be used.
     //

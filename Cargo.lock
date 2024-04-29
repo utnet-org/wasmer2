@@ -1764,21 +1764,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer-compiler-x"
-version = "2.4.1"
-dependencies = [
- "enumset",
- "hashbrown 0.11.2",
- "rkyv",
- "smallvec",
- "target-lexicon",
- "thiserror",
- "wasmer-types-x",
- "wasmer-vm-x",
- "wasmparser 0.78.2",
-]
-
-[[package]]
 name = "wasmer-compiler-singlepass-x"
 version = "2.4.1"
 dependencies = [
@@ -1798,6 +1783,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "wasmer-compiler-x"
+version = "2.4.1"
+dependencies = [
+ "enumset",
+ "hashbrown 0.11.2",
+ "rkyv",
+ "smallvec",
+ "target-lexicon",
+ "thiserror",
+ "wasmer-types-x",
+ "wasmer-vm-x",
+ "wasmparser 0.78.2",
+]
+
+[[package]]
 name = "wasmer-derive-x"
 version = "2.4.1"
 dependencies = [
@@ -1807,23 +1807,6 @@ dependencies = [
  "quote",
  "syn",
  "wasmer-x",
-]
-
-[[package]]
-name = "wasmer-engine-x"
-version = "2.4.1"
-dependencies = [
- "backtrace",
- "enumset",
- "lazy_static",
- "memmap2",
- "more-asserts",
- "rustc-demangle",
- "target-lexicon",
- "thiserror",
- "wasmer-compiler-x",
- "wasmer-types-x",
- "wasmer-vm-x",
 ]
 
 [[package]]
@@ -1844,32 +1827,25 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer-integration-tests-ios"
-version = "2.1.0"
-
-[[package]]
-name = "wasmer-x"
+name = "wasmer-engine-x"
 version = "2.4.1"
 dependencies = [
- "anyhow",
- "cfg-if",
- "indexmap",
+ "backtrace",
+ "enumset",
+ "lazy_static",
+ "memmap2",
  "more-asserts",
+ "rustc-demangle",
  "target-lexicon",
- "tempfile",
  "thiserror",
- "wasmer-compiler-cranelift",
- "wasmer-compiler-llvm",
  "wasmer-compiler-x",
- "wasmer-compiler-singlepass-x",
- "wasmer-derive-x",
- "wasmer-engine-x",
- "wasmer-engine-universal-x",
  "wasmer-types-x",
  "wasmer-vm-x",
- "wat",
- "winapi",
 ]
+
+[[package]]
+name = "wasmer-integration-tests-ios"
+version = "2.1.0"
 
 [[package]]
 name = "wasmer-types-x"
@@ -1929,15 +1905,39 @@ dependencies = [
  "tracing-subscriber",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
- "wasmer-compiler-x",
  "wasmer-compiler-singlepass-x",
- "wasmer-engine-x",
+ "wasmer-compiler-x",
  "wasmer-engine-universal-x",
- "wasmer-x",
+ "wasmer-engine-x",
  "wasmer-types-x",
  "wasmer-vm-x",
  "wasmer-wast",
+ "wasmer-x",
  "wat",
+]
+
+[[package]]
+name = "wasmer-x"
+version = "2.4.1"
+dependencies = [
+ "anyhow",
+ "cfg-if",
+ "indexmap",
+ "more-asserts",
+ "target-lexicon",
+ "tempfile",
+ "thiserror",
+ "wasmer-compiler-cranelift",
+ "wasmer-compiler-llvm",
+ "wasmer-compiler-singlepass-x",
+ "wasmer-compiler-x",
+ "wasmer-derive-x",
+ "wasmer-engine-universal-x",
+ "wasmer-engine-x",
+ "wasmer-types-x",
+ "wasmer-vm-x",
+ "wat",
+ "winapi",
 ]
 
 [[package]]

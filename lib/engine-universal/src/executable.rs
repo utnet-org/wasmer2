@@ -65,7 +65,7 @@ impl<'a> UniversalExecutableRef<'a> {
     /// serializing (via `rkyv::check_archived_value`).
     pub unsafe fn deserialize(
         data: &'a [u8],
-    ) -> Result<UniversalExecutableRef<'a>, DeserializeError> {
+    ) -> Result<UniversalExecutableRef<'a>, DeserializeError> { unsafe {
         Self::verify_serialized(data).map_err(|e| DeserializeError::Incompatible(e.to_string()))?;
         let (archive, position) = data.split_at(data.len() - 8);
         let mut position_value = [0u8; 8];
@@ -78,7 +78,7 @@ impl<'a> UniversalExecutableRef<'a> {
                 u64::from_le_bytes(position_value) as usize,
             ),
         })
-    }
+    }}
 
     // TODO(0-copy): this should never fail.
     /// Convert this reference to an owned `UniversalExecutable` value.

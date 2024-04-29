@@ -48,49 +48,49 @@ example.
     <summary><em>Execute the example</em></summary>
 
     ```shell
-    $ cargo run --example hello-world --release --features "cranelift"
+    cargo run --example hello-world --release --features "cranelift"
     ```
 
    </details>
 
 2. [**Instantiating a module**][instance], explains the basics of using Wasmer
    and how to create an instance out of a Wasm module.
-   
+
    _Keywords_: instance, module.
-   
+
    <details>
     <summary><em>Execute the example</em></summary>
 
     ```shell
-    $ cargo run --example instance --release --features "cranelift"
+    cargo run --example instance --release --features "cranelift"
     ```
 
    </details>
 
 3. [**Handling errors**][errors], explains the basics of interacting with
    Wasm module memory.
-   
+
    _Keywords_: instance, error.
-   
+
    <details>
     <summary><em>Execute the example</em></summary>
 
     ```shell
-    $ cargo run --example errors --release --features "cranelift"
+    cargo run --example errors --release --features "cranelift"
     ```
 
    </details>
 
 4. [**Interacting with memory**][memory], explains the basics of interacting with
    Wasm module memory.
-   
+
    _Keywords_: memory, module.
-   
+
    <details>
     <summary><em>Execute the example</em></summary>
 
     ```shell
-    $ cargo run --example memory --release --features "cranelift"
+    cargo run --example memory --release --features "cranelift"
     ```
 
    </details>
@@ -98,46 +98,45 @@ example.
 ### Exports
 
 1. [**Exported global**][exported-global], explains how to work with
-   exported globals: get/set their value, have information about their 
+   exported globals: get/set their value, have information about their
    type.
-   
+
    _Keywords_: export, global.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example exported-global --release --features "cranelift"
+   cargo run --example exported-global --release --features "cranelift"
    ```
 
    </details>
-   
+
 2. [**Exported function**][exported-function], explains how to get and
    how to call an exported function. They come in 2 flavors: dynamic,
    and “static”/native. The pros and cons are discussed briefly.
-   
+
    _Keywords_: export, function, dynamic, static, native.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example exported-function --release --features "cranelift"
+   cargo run --example exported-function --release --features "cranelift"
    ```
 
    </details>
 
-
-3. [**Exported memory**][exported-memory], explains how to read from 
+3. [**Exported memory**][exported-memory], explains how to read from
     and write to exported memory.
-   
+
    _Keywords_: export, memory.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example exported-memory --release --features "cranelift"
+   cargo run --example exported-memory --release --features "cranelift"
    ```
 
    </details>
@@ -146,29 +145,29 @@ example.
 
 1. [**Imported global**][imported-global], explains how to work with
    imported globals: create globals, import them, get/set their value.
-   
+
    _Keywords_: import, global.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example imported-global --release --features "cranelift"
+   cargo run --example imported-global --release --features "cranelift"
    ```
 
    </details>
 
-2. [**Imported function**][imported-function], explains how to define 
+2. [**Imported function**][imported-function], explains how to define
    an imported function. They come in 2 flavors: dynamic,
    and “static”/native.
-   
+
    _Keywords_: import, function, dynamic, static, native.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example imported-function --release --features "cranelift"
+   cargo run --example imported-function --release --features "cranelift"
    ```
 
    </details>
@@ -183,11 +182,11 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example table --release --features "cranelift"
+   cargo run --example table --release --features "cranelift"
    ```
 
    </details>
-   
+
 2. [**Memory**][memory], explains how to use Wasm Memories from
    the Wasmer API.  Memory example is a work in progress.
 
@@ -197,7 +196,7 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example memory --release --features "cranelift"
+   cargo run --example memory --release --features "cranelift"
    ```
 
    </details>
@@ -213,7 +212,7 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example tunables-limit-memory --release --features "cranelift"
+   cargo run --example tunables-limit-memory --release --features "cranelift"
    ```
 
    </details>
@@ -224,14 +223,14 @@ example.
    Universal engine is, and how to set it up. The example completes itself
    with the compilation of the Wasm module, its instantiation, and
    finally, by calling an exported function.
-   
+
    _Keywords_: Universal, engine, in-memory, executable code.
-   
+
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example engine-universal --release --features "cranelift"
+   cargo run --example engine-universal --release --features "cranelift"
    ```
 
    </details>
@@ -240,7 +239,7 @@ example.
    is, and how to set it up. The example completes itself with the
    compilation of the Wasm module, its instantiation, and finally, by
    calling an exported function.
-   
+
    _Keywords_: native, engine, shared library, dynamic library,
    executable code.
 
@@ -248,7 +247,7 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example engine-dylib --release --features "cranelift"
+   cargo run --example engine-dylib --release --features "cranelift"
    ```
 
    </details>
@@ -258,7 +257,7 @@ example.
    it. The example completes itself with the instantiation of a
    pre-compiled Wasm module, and finally, by calling an exported
    function.
-   
+
    _Keywords_: native, engine, constrained environment, ahead-of-time
    compilation, cross-compilation, executable code, serialization.
 
@@ -266,7 +265,7 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example engine-headless --release --features "cranelift"
+   cargo run --example engine-headless --release --features "cranelift"
    ```
 
    </details>
@@ -274,72 +273,72 @@ example.
 4. [**Cross-compilation**][cross-compilation], illustrates the power
    of the abstraction over the engines and the compilers, such as it
    is possible to cross-compile a Wasm module for a custom target.
-   
+
    _Keywords_: engine, compiler, cross-compilation.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example cross-compilation --release --features "cranelift"
+   cargo run --example cross-compilation --release --features "cranelift"
    ```
 
    </details>
-   
+
 5. [**Features**][features], illustrates how to enable WebAssembly
    features that aren't yet stable.
-   
+
    _Keywords_: engine, features.
-   
+
    <details>
    <summary><em>Execute the example</em></summary>
-   
+
    ```shell
-   $ cargo run --example features --release --features "cranelift"
+   cargo run --example features --release --features "cranelift"
    ```
-   
+
    </details>
 
 ### Compilers
 
 1. [**Singlepass compiler**][compiler-singlepass], explains how to use
    the [`wasmer-compiler-singlepass`] compiler.
-   
+
    _Keywords_: compiler, singlepass.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example compiler-singlepass --release --features "singlepass"
+   cargo run --example compiler-singlepass --release --features "singlepass"
    ```
 
    </details>
 
 2. [**Cranelift compiler**][compiler-cranelift], explains how to use
    the [`wasmer-compiler-cranelift`] compiler.
-   
+
    _Keywords_: compiler, cranelift.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example compiler-cranelift --release --features "cranelift"
+   cargo run --example compiler-cranelift --release --features "cranelift"
    ```
 
    </details>
 
 3. [**LLVM compiler**][compiler-llvm], explains how to use the
    [`wasmer-compiler-llvm`] compiler.
-   
+
    _Keywords_: compiler, llvm.
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example compiler-llvm --release --features "llvm"
+   cargo run --example compiler-llvm --release --features "llvm"
    ```
 
    </details>
@@ -348,14 +347,14 @@ example.
 
 1. [**WASI**][wasi], explains how to use the [WebAssembly System
    Interface][WASI] (WASI), i.e. the [`wasmer-wasi`] crate.
-   
+
    _Keywords_: wasi, system, interface
 
    <details>
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example wasi --release --features "cranelift,wasi"
+   cargo run --example wasi --release --features "cranelift,wasi"
    ```
 
    </details>
@@ -369,7 +368,7 @@ example.
    <summary><em>Execute the example</em></summary>
 
    ```shell
-   $ cargo run --example wasi-pipes --release --features "cranelift,wasi"
+   cargo run --example wasi-pipes --release --features "cranelift,wasi"
    ```
 
    </details>
@@ -399,4 +398,3 @@ example.
 [`wasmer-compiler-cranelift`]: https://github.com/wasmerio/wasmer/tree/master/lib/compiler-cranelift
 [`wasmer-compiler-llvm`]: https://github.com/wasmerio/wasmer/tree/master/lib/compiler-llvm
 [`wasmer-wasi`]: https://github.com/wasmerio/wasmer/tree/master/lib/wasi
-[WASI]: https://github.com/WebAssembly/WASI

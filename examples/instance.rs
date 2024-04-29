@@ -61,9 +61,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // as the main focus of this example is to show how to create an instance out
     // of a Wasm module and have basic interactions with it.
     let add_one = instance
-        .exports
-        .get_function("add_one")?
-        .native::<i32, i32>()?;
+        .get_native_function::<i32, i32>("add_one")?;
 
     println!("Calling `add_one` function...");
     let result = add_one.call(1)?;

@@ -456,8 +456,8 @@ impl Engine for UniversalEngine {
     #[cfg(not(feature = "compiler"))]
     fn compile(
         &self,
-        binary: &[u8],
-        tunables: &dyn Tunables,
+        _binary: &[u8],
+        _tunables: &dyn Tunables,
     ) -> Result<Box<dyn wasmer_engine::Executable>, CompileError> {
         return Err(CompileError::Codegen(
             "The UniversalEngine is operating in headless mode, so it can not compile Modules."

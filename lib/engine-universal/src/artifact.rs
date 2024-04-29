@@ -64,7 +64,7 @@ impl Instantiatable for UniversalArtifact {
         resolver: &dyn Resolver,
         host_state: Box<dyn std::any::Any>,
         config: wasmer_types::InstanceConfig,
-    ) -> Result<InstanceHandle, Self::Error> {
+    ) -> Result<InstanceHandle, Self::Error> { unsafe {
         let (imports, import_function_envs) = {
             let mut imports = wasmer_engine::resolve_imports(
                 &self.engine,
@@ -130,7 +130,7 @@ impl Instantiatable for UniversalArtifact {
             import_function_envs,
             config,
         ))
-    }
+    }}
 }
 
 impl Artifact for UniversalArtifact {

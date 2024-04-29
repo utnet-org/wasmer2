@@ -21,7 +21,6 @@ Copy and paste the result of executing the following in your shell, so we can kn
 echo "`wasmer -V` | `rustc -V` | `uname -m`"
 ```
 
-
 ### Steps to reproduce
 <!--
 Include steps that will help us recreate the issue.

@@ -45,7 +45,7 @@ mod lib {
 
     #[cfg(feature = "std")]
     pub mod std {
-        pub use std::{borrow, boxed, collections, fmt, str, string, sync, vec};
+        pub use std::{fmt, str, string, sync, vec, boxed, borrow};
     }
 }
 

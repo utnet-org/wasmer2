@@ -88,7 +88,7 @@ where
         Box::into_raw(Box::new(env_ref.clone())) as _
     };
     let host_env_drop_fn = |ptr: *mut c_void| {
-        unsafe { Box::from_raw(ptr.cast::<Env>()) };
+        unsafe { let _ = Box::from_raw(ptr.cast::<Env>()); };
     };
     let env = Box::into_raw(Box::new(env)) as _;
 
