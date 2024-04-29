@@ -340,8 +340,6 @@ example.
 
 [hello-world]: ./hello_world.rs
 [engine-universal]: ./engine_universal.rs
-[engine-dylib]: ./engine_dylib.rs
-[engine-headless]: ./engine_headless.rs
 [compiler-singlepass]: ./compiler_singlepass.rs
 [compiler-cranelift]: ./compiler_cranelift.rs
 [compiler-llvm]: ./compiler_llvm.rs

@@ -46,15 +46,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Let's instantiate the Wasm module.
     let instance = Instance::new(&module, &import_object)?;
 
-    let sum = instance.exports.get_function("sum")?;
+    let sum = instance.get_native_function::<(i32, i32), i32>("sum")?;
 
     println!("Calling `sum` function...");
     // Let's call the `sum` exported function. The parameters are a
     // slice of `Value`s. The results are a boxed slice of `Value`s.
-    let results = sum.call(&[Value::I32(1), Value::I32(2)])?;
+    let results = sum.call(1, 2)?;
 
     println!("Results: {:?}", results);
-    assert_eq!(results.to_vec(), vec![Value::I32(3)]);
+    assert_eq!(results, 3);
 
     Ok(())
 }
