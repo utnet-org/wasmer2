@@ -15,7 +15,7 @@
 //!
 //! Ready?
 
-use wasmer::{imports, wat2wasm, Instance, Module, Mutability, Store, Type, Value};
+use wasmer::{imports, wat2wasm, Instance, Module, Mutability, Store, Type, Value, Exports, Extern};
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
 
@@ -65,8 +65,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //     ```
     //     get::<Global>(name)`.
     //     ```
-    let one = instance.exports.get_global("one")?;
-    let some = instance.exports.get_global("some")?;
+    
+    let export = instance.lookup("one").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("one", Extern::from_vm_export(&store, export));
+    let one = exports.get_global("one")?;
+
+    let export = instance.lookup("some").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("some", Extern::from_vm_export(&store, export));
+    let some = exports.get_global("some")?;
 
     println!("Getting globals types information...");
     // Let's get the globals types. The results are `GlobalType`s.
@@ -89,9 +97,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // We will use an exported function for the `one` global
     // and the Global API for `some`.
     let get_one = instance
-        .exports
-        .get_function("get_one")?
-        .native::<(), f32>()?;
+        .get_native_function::<(), f32>("get_one")?;
 
     let one_value = get_one.call()?;
     let some_value = some.get();
@@ -121,9 +127,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //
     // We will use both for the `some` global.
     let set_some = instance
-        .exports
-        .get_function("set_some")?
-        .native::<f32, ()>()?;
+        .get_native_function::<f32, ()>("set_some")?;
     set_some.call(21.0)?;
     let some_result = some.get();
     println!("`some` value after `set_some`: {:?}", some_result);

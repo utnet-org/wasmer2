@@ -11,6 +11,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 ## 2.1.0 - 2021/11/30
 
 ### Added
+
 - [#2574](https://github.com/wasmerio/wasmer/pull/2574) Added Windows support to Singlepass.
 - [#2535](https://github.com/wasmerio/wasmer/pull/2435) Added iOS support for Wasmer. This relies on the `dylib-engine`.
 - [#2460](https://github.com/wasmerio/wasmer/pull/2460) Wasmer can now compile to Javascript via `wasm-bindgen`. Use the `js-default` (and no default features) feature to try it!.
@@ -25,6 +26,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2701](https://github.com/wasmerio/wasmer/pull/2701) Improved VFS API for usage from JS
 
 ### Changed
+
 - [#2460](https://github.com/wasmerio/wasmer/pull/2460) **breaking change** `wasmer` API usage with `no-default-features` requires now the `sys` feature to preserve old behavior.
 - [#2476](https://github.com/wasmerio/wasmer/pull/2476) Removed unncessary abstraction `ModuleInfoTranslate` from `wasmer-compiler`.
 - [#2442](https://github.com/wasmerio/wasmer/pull/2442) Improved `WasmPtr`, added `WasmCell` for host/guest interaction.
@@ -35,6 +37,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2693](https://github.com/wasmerio/wasmer/pull/2693) Validate CPU features when loading a deserialized module.
 
 ### Fixed
+
 - [#2599](https://github.com/wasmerio/wasmer/pull/2599) Fixed Universal engine for Linux/Aarch64 target.
 - [#2587](https://github.com/wasmerio/wasmer/pull/2587) Fixed deriving `WasmerEnv` when aliasing `Result`.
 - [#2518](https://github.com/wasmerio/wasmer/pull/2518) Remove temporary file used to creating an artifact when creating a Dylib engine artifact.
@@ -68,24 +71,29 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 ## 2.0.0 - 2021/06/16
 
 ### Added
+
 - [#2411](https://github.com/wasmerio/wasmer/pull/2411) Extract types from `wasi` to a new `wasi-types` crate.
 - [#2390](https://github.com/wasmerio/wasmer/pull/2390) Make `wasmer-vm` to compile on Windows 32bits.
 - [#2402](https://github.com/wasmerio/wasmer/pull/2402) Add more examples and more doctests for `wasmer-middlewares`.
 
 ### Changed
+
 - [#2399](https://github.com/wasmerio/wasmer/pull/2399) Add the Dart integration in the `README.md`.
 
 ### Fixed
+
 - [#2386](https://github.com/wasmerio/wasmer/pull/2386) Handle properly when a module has no exported functions in the CLI.
 
 ## 2.0.0-rc2 - 2021/06/03
 
 ### Fixed
+
 - [#2383](https://github.com/wasmerio/wasmer/pull/2383) Fix bugs in the Wasmer CLI tool with the way `--version` and the name of the CLI tool itself were printed.
 
 ## 2.0.0-rc1 - 2021/06/02
 
 ### Added
+
 - [#2348](https://github.com/wasmerio/wasmer/pull/2348) Make Wasmer available on `aarch64-linux-android`.
 - [#2315](https://github.com/wasmerio/wasmer/pull/2315) Make the Cranelift compiler working with the Native engine.
 - [#2306](https://github.com/wasmerio/wasmer/pull/2306) Add support for the latest version of the Wasm SIMD proposal to compiler LLVM.
@@ -107,6 +115,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2104](https://github.com/wasmerio/wasmer/pull/2104) Update WAsm core spectests and wasmparser.
 
 ### Changed
+
 - [#2369](https://github.com/wasmerio/wasmer/pull/2369) Remove the deprecated `--backend` option in the CLI.
 - [#2368](https://github.com/wasmerio/wasmer/pull/2368) Remove the deprecated code in the `wasmer-wasi` crate.
 - [#2367](https://github.com/wasmerio/wasmer/pull/2367) Remove the `deprecated` features and associated code in the `wasmer` crate.
@@ -132,6 +141,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2157](https://github.com/wasmerio/wasmer/pull/2157) Simplify the code behind `WasmPtr`
 
 ### Fixed
+
 - [#2397](https://github.com/wasmerio/wasmer/pull/2397) Fix WASI rename temporary file issue.
 - [#2391](https://github.com/wasmerio/wasmer/pull/2391) Fix Singlepass emit bug, [#2347](https://github.com/wasmerio/wasmer/issues/2347) and [#2159](https://github.com/wasmerio/wasmer/issues/2159)
 - [#2327](https://github.com/wasmerio/wasmer/pull/2327) Fix memory leak preventing internal instance memory from being freed when a WasmerEnv contained an exported extern (e.g. Memory, etc.).
@@ -148,6 +158,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 ## 1.0.2 - 2021-02-04
 
 ### Added
+
 - [#2053](https://github.com/wasmerio/wasmer/pull/2053) Implement the non-standard `wasi_get_unordered_imports` function in the C API.
 - [#2072](https://github.com/wasmerio/wasmer/pull/2072) Add `wasm_config_set_target`, along with `wasm_target_t`, `wasm_triple_t` and `wasm_cpu_features_t` in the unstable C API.
 - [#2059](https://github.com/wasmerio/wasmer/pull/2059) Ability to capture `stdout` and `stderr` with WASI in the C API.
@@ -157,6 +168,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2072](https://github.com/wasmerio/wasmer/pull/2072) Added cross-compilation to Wasm C API.
 
 ### Changed
+
 - [#2085](https://github.com/wasmerio/wasmer/pull/2085) Update to latest inkwell and LLVM 11.
 - [#2037](https://github.com/wasmerio/wasmer/pull/2037) Improved parallelism of LLVM with the Native/Object engine
 - [#2012](https://github.com/wasmerio/wasmer/pull/2012) Refactor Singlepass init stack assembly (more performant now)
@@ -165,6 +177,7 @@ Looking for changes that affect our C API? See the [C API Changelog](lib/c-api/C
 - [#2056](https://github.com/wasmerio/wasmer/pull/2056) Change back to depend on the `enumset` crate instead of `wasmer_enumset`
 
 ### Fixed
+
 - [#2066](https://github.com/wasmerio/wasmer/pull/2066) Include 'extern "C"' in our C headers when included by C++ code.
 - [#2090](https://github.com/wasmerio/wasmer/pull/2090) `wasi_env_t` needs to be freed with `wasi_env_delete` in the C API.
 - [#2084](https://github.com/wasmerio/wasmer/pull/2084) Avoid calling the function environment finalizer more than once when the environment has been cloned in the C API.
@@ -182,14 +195,17 @@ This release includes a breaking change in the API (changing the trait `enumset:
 This change is unlikely to affect any users of `wasmer`, but if it does please change uses of the `enumset` crate to the `wasmer_enumset` crate where possible.
 
 ### Added
+
 - [#2010](https://github.com/wasmerio/wasmer/pull/2010) A new, experimental, minified build of `wasmer` called `wasmer-headless` will now be included with releases. `wasmer-headless` is the `wasmer` VM without any compilers attached, so it can only run precompiled Wasm modules.
 - [#2005](https://github.com/wasmerio/wasmer/pull/2005) Added the arguments `alias` and `optional` to `WasmerEnv` derive's `export` attribute.
 
 ### Changed
+
 - [#2006](https://github.com/wasmerio/wasmer/pull/2006) Use `wasmer_enumset`, a fork of the `enumset` crate to work around a breaking change in `syn`
 - [#1985](https://github.com/wasmerio/wasmer/pull/1985) Bump minimum supported Rust version to 1.48
 
 ### Fixed
+
 - [#2007](https://github.com/wasmerio/wasmer/pull/2007) Fix packaging of wapm on Windows
 - [#2005](https://github.com/wasmerio/wasmer/pull/2005) Emscripten is now working again.
 
@@ -200,24 +216,26 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 - [#1969](https://github.com/wasmerio/wasmer/pull/1969) Added D integration to the README
 
 ### Changed
+
 - [#1979](https://github.com/wasmerio/wasmer/pull/1979) `WasmPtr::get_utf8_string` was renamed to `WasmPtr::get_utf8_str` and made `unsafe`.
 
 ### Fixed
+
 - [#1979](https://github.com/wasmerio/wasmer/pull/1979) `WasmPtr::get_utf8_string` now returns a `String`, fixing a soundness issue in certain circumstances. The old functionality is available under a new `unsafe` function, `WasmPtr::get_utf8_str`.
 
 ## 1.0.0-rc1 - 2020-12-23
 
 ### Added
 
-* [#1894](https://github.com/wasmerio/wasmer/pull/1894) Added exports `wasmer::{CraneliftOptLevel, LLVMOptLevel}` to allow using `Cranelift::opt_level` and `LLVM::opt_level` directly via the `wasmer` crate
+- [#1894](https://github.com/wasmerio/wasmer/pull/1894) Added exports `wasmer::{CraneliftOptLevel, LLVMOptLevel}` to allow using `Cranelift::opt_level` and `LLVM::opt_level` directly via the `wasmer` crate
 
 ### Changed
 
-* [#1941](https://github.com/wasmerio/wasmer/pull/1941) Turn `get_remaining_points`/`set_remaining_points` of the `Metering` middleware into free functions to allow using them in an ahead-of-time compilation setup
-* [#1955](https://github.com/wasmerio/wasmer/pull/1955) Set `jit` as a default feature of the `wasmer-wasm-c-api` crate
-* [#1944](https://github.com/wasmerio/wasmer/pull/1944) Require `WasmerEnv` to be `Send + Sync` even in dynamic functions.
-* [#1963](https://github.com/wasmerio/wasmer/pull/1963) Removed `to_wasm_error` in favour of `impl From<BinaryReaderError> for WasmError`
-* [#1962](https://github.com/wasmerio/wasmer/pull/1962) Replace `wasmparser::Result<()>` with `Result<(), MiddlewareError>` in middleware, allowing implementors to return errors in `FunctionMiddleware::feed`
+- [#1941](https://github.com/wasmerio/wasmer/pull/1941) Turn `get_remaining_points`/`set_remaining_points` of the `Metering` middleware into free functions to allow using them in an ahead-of-time compilation setup
+- [#1955](https://github.com/wasmerio/wasmer/pull/1955) Set `jit` as a default feature of the `wasmer-wasm-c-api` crate
+- [#1944](https://github.com/wasmerio/wasmer/pull/1944) Require `WasmerEnv` to be `Send + Sync` even in dynamic functions.
+- [#1963](https://github.com/wasmerio/wasmer/pull/1963) Removed `to_wasm_error` in favour of `impl From<BinaryReaderError> for WasmError`
+- [#1962](https://github.com/wasmerio/wasmer/pull/1962) Replace `wasmparser::Result<()>` with `Result<(), MiddlewareError>` in middleware, allowing implementors to return errors in `FunctionMiddleware::feed`
 
 ### Fixed
 
@@ -228,12 +246,12 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 
 ### Added
 
-* [#1916](https://github.com/wasmerio/wasmer/pull/1916) Add the `WASMER_VERSION*` constants with the `wasmer_version*` functions in the Wasmer C API
-* [#1867](https://github.com/wasmerio/wasmer/pull/1867) Added `Metering::get_remaining_points` and `Metering::set_remaining_points`
-* [#1881](https://github.com/wasmerio/wasmer/pull/1881) Added `UnsupportedTarget` error to `CompileError`
-* [#1908](https://github.com/wasmerio/wasmer/pull/1908) Implemented `TryFrom<Value<T>>` for `i32`/`u32`/`i64`/`u64`/`f32`/`f64`
-* [#1927](https://github.com/wasmerio/wasmer/pull/1927) Added mmap support in `Engine::deserialize_from_file` to speed up artifact loading
-* [#1911](https://github.com/wasmerio/wasmer/pull/1911) Generalized signature type in `Function::new` and `Function::new_with_env` to accept owned and reference `FunctionType` as well as array pairs. This allows users to define signatures as constants. Implemented `From<([Type; $N], [Type; $M])>` for `FunctionType` to support this.
+- [#1916](https://github.com/wasmerio/wasmer/pull/1916) Add the `WASMER_VERSION*` constants with the `wasmer_version*` functions in the Wasmer C API
+- [#1867](https://github.com/wasmerio/wasmer/pull/1867) Added `Metering::get_remaining_points` and `Metering::set_remaining_points`
+- [#1881](https://github.com/wasmerio/wasmer/pull/1881) Added `UnsupportedTarget` error to `CompileError`
+- [#1908](https://github.com/wasmerio/wasmer/pull/1908) Implemented `TryFrom<Value<T>>` for `i32`/`u32`/`i64`/`u64`/`f32`/`f64`
+- [#1927](https://github.com/wasmerio/wasmer/pull/1927) Added mmap support in `Engine::deserialize_from_file` to speed up artifact loading
+- [#1911](https://github.com/wasmerio/wasmer/pull/1911) Generalized signature type in `Function::new` and `Function::new_with_env` to accept owned and reference `FunctionType` as well as array pairs. This allows users to define signatures as constants. Implemented `From<([Type; $N], [Type; $M])>` for `FunctionType` to support this.
 
 ### Changed
 
@@ -247,7 +265,8 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 
 - [#1865](https://github.com/wasmerio/wasmer/pull/1865) Fix memory leaks with host function environments.
 - [#1870](https://github.com/wasmerio/wasmer/pull/1870) Fixed Trap instruction address maps in Singlepass
-* [#1914](https://github.com/wasmerio/wasmer/pull/1914) Implemented `TryFrom<Bytes> for Pages` instead of `From<Bytes> for Pages` to properly handle overflow errors
+
+- [#1914](https://github.com/wasmerio/wasmer/pull/1914) Implemented `TryFrom<Bytes> for Pages` instead of `From<Bytes> for Pages` to properly handle overflow errors
 
 ## 1.0.0-beta1 - 2020-12-01
 
@@ -313,20 +332,23 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 ## 1.0.0-alpha4 - 2020-10-08
 
 ### Added
+
 - [#1635](https://github.com/wasmerio/wasmer/pull/1635) Implement `wat2wasm` in the Wasm C API.
 - [#1636](https://github.com/wasmerio/wasmer/pull/1636) Implement `wasm_module_validate` in the Wasm C API.
 - [#1657](https://github.com/wasmerio/wasmer/pull/1657) Implement `wasm_trap_t` and `wasm_frame_t` for Wasm C API; add examples in Rust and C of exiting early with a host function.
 
 ### Fixed
+
 - [#1690](https://github.com/wasmerio/wasmer/pull/1690) Fix `wasm_memorytype_limits` where `min` and `max` represents pages, not bytes. Additionally, fixes the max limit sentinel value.
 - [#1671](https://github.com/wasmerio/wasmer/pull/1671) Fix probestack firing inappropriately, and sometimes over/under allocating stack.
 - [#1660](https://github.com/wasmerio/wasmer/pull/1660) Fix issue preventing map-dir aliases starting with `/` from working properly.
 - [#1624](https://github.com/wasmerio/wasmer/pull/1624) Add Value::I32/Value::I64 converters from unsigned ints.
 
 ### Changed
+
 - [#1682](https://github.com/wasmerio/wasmer/pull/1682) Improve error reporting when making a memory with invalid settings.
 - [#1691](https://github.com/wasmerio/wasmer/pull/1691) Bump minimum supported Rust version to 1.46.0
-- [#1645](https://github.com/wasmerio/wasmer/pull/1645) Move the install script to https://github.com/wasmerio/wasmer-install
+- [#1645](https://github.com/wasmerio/wasmer/pull/1645) Move the install script to <https://github.com/wasmerio/wasmer-install>
 
 ## 1.0.0-alpha3 - 2020-09-14
 
@@ -353,6 +375,7 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 ## 0.17.1 - 2020-06-24
 
 ### Changed
+
 - [#1439](https://github.com/wasmerio/wasmer/pull/1439) Move `wasmer-interface-types` into its own repository
 
 ### Fixed
@@ -363,6 +386,7 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 ## 0.17.0 - 2020-05-11
 
 ### Added
+
 - [#1331](https://github.com/wasmerio/wasmer/pull/1331) Implement the `record` type and instrutions for WIT
 - [#1345](https://github.com/wasmerio/wasmer/pull/1345) Adding ARM testing in Azure Pipelines
 - [#1329](https://github.com/wasmerio/wasmer/pull/1329) New numbers and strings instructions for WIT
@@ -379,9 +403,11 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 - [#1292](https://github.com/wasmerio/wasmer/pull/1292) Experimental Support for Android (x86_64 and AArch64)
 
 ### Fixed
+
 - [#1283](https://github.com/wasmerio/wasmer/pull/1283) Workaround for floating point arguments and return values in `DynamicFunc`s.
 
 ### Changed
+
 - [#1401](https://github.com/wasmerio/wasmer/pull/1401) Make breaking change to `RuntimeError`: `RuntimeError` is now more explicit about its possible error values allowing for better insight into why a call into Wasm failed.
 - [#1382](https://github.com/wasmerio/wasmer/pull/1382) Refactored test infranstructure (part 2)
 - [#1380](https://github.com/wasmerio/wasmer/pull/1380) Refactored test infranstructure (part 1)
@@ -406,10 +432,12 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 ## 0.16.0 - 2020-03-11
 
 ### Added
+
 - [#1286](https://github.com/wasmerio/wasmer/pull/1286) Updated Windows Wasmer icons. Add wax
 - [#1284](https://github.com/wasmerio/wasmer/pull/1284) Implement string and memory instructions in `wasmer-interface-types`
 
 ### Fixed
+
 - [#1272](https://github.com/wasmerio/wasmer/pull/1272) Fix off-by-one error bug when accessing memory with a `WasmPtr` that contains the last valid byte of memory. Also changes the behavior of `WasmPtr<T, Array>` with a length of 0 and `WasmPtr<T>` where `std::mem::size_of::<T>()` is 0 to always return `None`
 
 ## 0.15.0 - 2020-03-04
@@ -445,6 +473,7 @@ This change is unlikely to affect any users of `wasmer`, but if it does please c
 - [#1129](https://github.com/wasmerio/wasmer/pull/1129) Standard exception types for singlepass backend.
 
 ## 0.13.1 - 2020-01-16
+
 - Fix bug in wapm related to the `package.wasmer_extra_flags` entry in the manifest
 
 ## 0.13.0 - 2020-01-15
@@ -601,6 +630,7 @@ Special thanks to @YaronWittenstein @penberg for their contributions.
 - [#589](https://github.com/wasmerio/wasmer/issues/589) Make `wasmer_byte_array` fields `public` in wasmer-c-api
 
 ## 0.6.0 - 2019-07-31
+
 - [#603](https://github.com/wasmerio/wasmer/pull/603) Update Wapm-cli, bump version numbers
 - [#595](https://github.com/wasmerio/wasmer/pull/595) Add unstable public API for interfacing with the WASI file system in plugin-like usecases
 - [#598](https://github.com/wasmerio/wasmer/pull/598) LLVM Backend is now supported in Windows
@@ -614,6 +644,7 @@ Special thanks to @YaronWittenstein @penberg for their contributions.
   - Updates LLVM to version 8.0
 
 ## 0.5.7 - 2019-07-23
+
 - [#575](https://github.com/wasmerio/wasmer/pull/575) Prepare for release; update wapm to 0.3.6
 - [#555](https://github.com/wasmerio/wasmer/pull/555) WASI filesystem rewrite.  Major improvements
   - adds virtual root showing all preopened directories
@@ -622,6 +653,7 @@ Special thanks to @YaronWittenstein @penberg for their contributions.
   - many misc. improvements to most syscalls touching the filesystem
 
 ## 0.5.6 - 2019-07-16
+
 - [#565](https://github.com/wasmerio/wasmer/pull/565) Update wapm and bump version to 0.5.6
 - [#563](https://github.com/wasmerio/wasmer/pull/563) Improve wasi testing infrastructure
   - fixes arg parsing from comments & fixes the mapdir test to have the native code doing the same thing as the WASI code
@@ -630,19 +662,22 @@ Special thanks to @YaronWittenstein @penberg for their contributions.
 - [#554](https://github.com/wasmerio/wasmer/pull/554) Finish implementation of `wasi::fd_seek`, fix bug in filestat
 - [#550](https://github.com/wasmerio/wasmer/pull/550) Fix singlepass compilation error with `imul` instruction
 
-
 ## 0.5.5 - 2019-07-10
+
 - [#541](https://github.com/wasmerio/wasmer/pull/541) Fix dependency graph by making separate test crates; ABI implementations should not depend on compilers. Add Cranelift fork as git submodule of clif-backend
 - [#537](https://github.com/wasmerio/wasmer/pull/537) Add hidden flag (`--cache-key`) to use prehashed key into the compiled wasm cache and change compiler backend-specific caching to use directories
 - [#536](https://github.com/wasmerio/wasmer/pull/536) ~Update cache to use compiler backend name in cache key~
 
 ## 0.5.4 - 2019-07-06
+
 - [#529](https://github.com/wasmerio/wasmer/pull/529) Updates the Wasm Interface library, which is used by wapm, with bug fixes and error message improvements
 
 ## 0.5.3 - 2019-07-03
+
 - [#523](https://github.com/wasmerio/wasmer/pull/523) Update wapm version to fix bug related to signed packages in the global namespace and locally-stored public keys
 
 ## 0.5.2 - 2019-07-02
+
 - [#516](https://github.com/wasmerio/wasmer/pull/516) Add workaround for singlepass miscompilation on GetLocal
 - [#521](https://github.com/wasmerio/wasmer/pull/521) Update Wapm-cli, bump version numbers
 - [#518](https://github.com/wasmerio/wasmer/pull/518) Update Cranelift and WasmParser
@@ -652,6 +687,7 @@ Special thanks to @YaronWittenstein @penberg for their contributions.
 - [#510](https://github.com/wasmerio/wasmer/pull/510) Simplify construction of floating point constants in LLVM backend. Fix LLVM assertion failure due to definition of %ctx.
 
 ## 0.5.1 - 2019-06-24
+
 - [#508](https://github.com/wasmerio/wasmer/pull/508) Update wapm version, includes bug fixes
 
 ## 0.5.0 - 2019-06-17

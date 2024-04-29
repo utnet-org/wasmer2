@@ -17,7 +17,7 @@
 //!
 //! Ready?
 
-use wasmer::{imports, wat2wasm, Instance, Module, Store, Value};
+use wasmer::{imports, wat2wasm, Instance, Module, Store};
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
 
@@ -67,17 +67,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //     ```
     //     get::<Function>(name)`.
     //     ```
-    let sum = instance.exports.get_function("sum")?;
+    let sum_native = instance.get_native_function::<(i32, i32), i32>("sum")?;
 
     println!("Calling `sum` function...");
-    // Let's call the `sum` exported function. The parameters are a
-    // slice of `Value`s. The results are a boxed slice of `Value`s.
-    let args = [Value::I32(1), Value::I32(2)];
-    let result = sum.call(&args)?;
-
-    println!("Results: {:?}", result);
-    assert_eq!(result.to_vec(), vec![Value::I32(3)]);
-
     // That was fun. But what if we can get rid of the `Value`s? Well,
     // that's possible with the `NativeFunction` API. The function
     // will use native Rust values.
@@ -86,16 +78,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // `Rets`, respectively for the parameters and the results. If
     // those values don't match the exported function signature, an
     // error will be raised.
-    let sum_native = sum.native::<(i32, i32), i32>()?;
 
-    println!("Calling `sum` function (natively)...");
+    // Let's call the `sum` exported function. The parameters are a
+    // slice of `Value`s. The results are a boxed slice of `Value`s.
+    // let args = [Value::I32(1), Value::I32(2)];
+
     // Let's call the `sum` exported function. The parameters are
     // statically typed Rust values of type `i32` and `i32`. The
     // result, in this case particular case, in a unit of type `i32`.
-    let result = sum_native.call(3, 4)?;
+
+    let result = sum_native.call(1, 2)?;
 
     println!("Results: {:?}", result);
-    assert_eq!(result, 7);
+    assert_eq!(result, 3);
 
     // Much nicer, isn't it?
     //

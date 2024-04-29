@@ -11,7 +11,7 @@
 //!
 //! Ready?
 
-use wasmer::{imports, wat2wasm, Array, Instance, Module, Store, WasmPtr};
+use wasmer::{imports, wat2wasm, Array, Instance, Module, Store, WasmPtr, Exports, Extern};
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
 
@@ -51,13 +51,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let instance = Instance::new(&module, &import_object)?;
 
     let load = instance
-        .exports
         .get_native_function::<(), (WasmPtr<u8, Array>, i32)>("load")?;
 
     // Here we go.
     //
     // The Wasm module exports a memory under "mem". Let's get it.
-    let memory = instance.exports.get_memory("mem")?;
+    let export = instance.lookup("mem").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("mem", Extern::from_vm_export(&store, export));
+    let memory = exports.get_memory("mem")?;
 
     // Now that we have the exported memory, let's get some
     // information about it.
@@ -85,7 +87,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //
     // We will get bytes out of the memory so we need to
     // decode them into a string.
-    let str = ptr.get_utf8_string(memory, length as u32).unwrap();
+    let str = ptr.get_utf8_string(&memory, length as u32).unwrap();
     println!("Memory contents: {:?}", str);
 
     // What about changing the contents of the memory with a more
@@ -94,7 +96,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // To do that, we'll dereference our pointer and change the content
     // of each `Cell`
     let new_str = b"Hello, Wasmer!";
-    let values = ptr.deref(memory, 0, new_str.len() as u32).unwrap();
+    let values = ptr.deref(&memory, 0, new_str.len() as u32).unwrap();
     for i in 0..new_str.len() {
         values[i].set(new_str[i]);
     }
@@ -106,7 +108,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // before.
     println!("New string length: {:?}", new_str.len());
 
-    let str = ptr.get_utf8_string(memory, new_str.len() as u32).unwrap();
+    let str = ptr.get_utf8_string(&memory, new_str.len() as u32).unwrap();
     println!("New memory contents: {:?}", str);
 
     // Much better, don't you think?
