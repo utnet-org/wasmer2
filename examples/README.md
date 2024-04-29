@@ -235,42 +235,7 @@ example.
 
    </details>
 
-2. [**Dylib engine**][engine-dylib], explains what a Dylib engine
-   is, and how to set it up. The example completes itself with the
-   compilation of the Wasm module, its instantiation, and finally, by
-   calling an exported function.
-
-   _Keywords_: native, engine, shared library, dynamic library,
-   executable code.
-
-   <details>
-   <summary><em>Execute the example</em></summary>
-
-   ```shell
-   cargo run --example engine-dylib --release --features "cranelift"
-   ```
-
-   </details>
-
-3. [**Headless engines**][engine-headless], explains what a headless
-   engine is, what problem it does solve, and what are the benefits of
-   it. The example completes itself with the instantiation of a
-   pre-compiled Wasm module, and finally, by calling an exported
-   function.
-
-   _Keywords_: native, engine, constrained environment, ahead-of-time
-   compilation, cross-compilation, executable code, serialization.
-
-   <details>
-   <summary><em>Execute the example</em></summary>
-
-   ```shell
-   cargo run --example engine-headless --release --features "cranelift"
-   ```
-
-   </details>
-
-4. [**Cross-compilation**][cross-compilation], illustrates the power
+2. [**Cross-compilation**][cross-compilation], illustrates the power
    of the abstraction over the engines and the compilers, such as it
    is possible to cross-compile a Wasm module for a custom target.
 
@@ -285,7 +250,7 @@ example.
 
    </details>
 
-5. [**Features**][features], illustrates how to enable WebAssembly
+3. [**Features**][features], illustrates how to enable WebAssembly
    features that aren't yet stable.
 
    _Keywords_: engine, features.

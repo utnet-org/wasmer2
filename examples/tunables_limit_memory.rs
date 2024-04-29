@@ -5,7 +5,7 @@ use wasmer::{
     imports,
     vm::{self, MemoryError, MemoryStyle, TableStyle, VMMemoryDefinition, VMTableDefinition},
     wat2wasm, BaseTunables, Instance, Memory, MemoryType, Module, Pages, Store, TableType, Target,
-    Tunables,
+    Tunables, Exports, Extern
 };
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
@@ -160,10 +160,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Now at this point, our custom tunables are used
     let instance = Instance::new(&module, &import_object)?;
+    let export = instance.lookup("memory").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("memory", Extern::from_vm_export(&store, export));
 
     // Check what happened
-    let mut memories: Vec<Memory> = instance
-        .exports
+    let mut memories: Vec<Memory> = exports
         .iter()
         .memories()
         .map(|pair| pair.1.clone())

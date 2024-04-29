@@ -86,9 +86,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //
     // The Wasm module exports a function called `sum`. Let's get it.
     let sum = instance
-        .exports
-        .get_function("sum")?
-        .native::<(i32, i32), i32>()?;
+        .get_native_function::<(i32, i32), i32>("sum")?;
 
     println!("Calling `sum` function...");
     // Let's call the `sum` exported function. It will call each

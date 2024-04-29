@@ -17,7 +17,7 @@
 
 use wasmer::{
     imports, wat2wasm, Function, FunctionType, Global, Instance, Memory, Module, Store, Table,
-    Type, Value,
+    Type, Value, Exports, Extern,
 };
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
@@ -101,19 +101,31 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //
     // Let's get them.
     println!("Getting the exported function...");
-    let function = instance.exports.get::<Function>("guest_function")?;
+    let export = instance.lookup("guest_function").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("guest_function", Extern::from_vm_export(&store, export));
+    let function = exports.get::<Function>("guest_function")?;
     println!("Got exported function of type: {:?}", function.ty());
 
     println!("Getting the exported global...");
-    let global = instance.exports.get::<Global>("guest_global")?;
+    let export = instance.lookup("guest_global").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("guest_global", Extern::from_vm_export(&store, export));
+    let global = exports.get::<Global>("guest_global")?;
     println!("Got exported global of type: {:?}", global.ty());
 
     println!("Getting the exported memory...");
-    let memory = instance.exports.get::<Memory>("guest_memory")?;
+    let export = instance.lookup("guest_memory").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("guest_memory", Extern::from_vm_export(&store, export));
+    let memory = exports.get::<Memory>("guest_memory")?;
     println!("Got exported memory of type: {:?}", memory.ty());
 
     println!("Getting the exported table...");
-    let table = instance.exports.get::<Table>("guest_table")?;
+    let export = instance.lookup("guest_table").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("guest_table", Extern::from_vm_export(&store, export));
+    let table = exports.get::<Table>("guest_table")?;
     println!("Got exported table of type: {:?}", table.ty());
 
     Ok(())

@@ -76,11 +76,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Calling `sum` function...");
     // The Wasm module exports a function called `sum`.
-    let sum = instance.exports.get_function("sum")?;
-    let results = sum.call(&[Value::I32(1), Value::I32(2)])?;
+    let sum = instance.get_native_function::<(i32, i32), i32>("sum")?;
+    let results = sum.call(1, 2)?;
 
     println!("Results: {:?}", results);
-    assert_eq!(results.to_vec(), vec![Value::I32(3)]);
+    assert_eq!(results, 3);
 
     Ok(())
 }

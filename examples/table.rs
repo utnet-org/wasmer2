@@ -1,5 +1,5 @@
 use wasmer::{
-    imports, wat2wasm, Function, Instance, Module, NativeFunc, Store, TableType, Type, Value,
+    imports, wat2wasm, Function, Instance, Module, NativeFunc, Store, TableType, Type, Value, Exports, Extern
 };
 use wasmer_compiler_cranelift::Cranelift;
 use wasmer_engine_universal::Universal;
@@ -62,7 +62,7 @@ fn main() -> anyhow::Result<()> {
     // The first argument is the table index and the next 2 are the 2 arguments
     // to be passed to the function found in the table.
     let call_via_table: NativeFunc<(i32, i32, i32), i32> =
-        instance.exports.get_native_function("call_callback")?;
+        instance.get_native_function("call_callback")?;
 
     // And then call it with table index 1 and arguments 2 and 7.
     let result = call_via_table.call(1, 2, 7)?;
@@ -71,7 +71,10 @@ fn main() -> anyhow::Result<()> {
     assert_eq!(result, 18);
 
     // We then get the table from the instance.
-    let guest_table = instance.exports.get_table("__indirect_function_table")?;
+    let export = instance.lookup("__indirect_function_table").unwrap();
+    let mut exports = Exports::new();
+    exports.insert("__indirect_function_table", Extern::from_vm_export(&store, export));
+    let guest_table = exports.get_table("__indirect_function_table")?;
     // And demonstrate that it has the properties that we set in the Wasm.
     assert_eq!(guest_table.size(), 3);
     assert_eq!(

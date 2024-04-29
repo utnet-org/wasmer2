@@ -46,11 +46,11 @@ fn main() -> anyhow::Result<()> {
     // :-).
     let import_object = imports! {};
     let instance = Instance::new(&module, &import_object)?;
-    let swap = instance.exports.get_function("swap")?;
+    let swap = instance.get_native_function::<(i32, i64), (i64, i32)>("swap")?;
 
-    let results = swap.call(&[Value::I32(1), Value::I64(2)])?;
+    let results = swap.call(1, 2)?;
 
-    assert_eq!(results.to_vec(), vec![Value::I64(2), Value::I32(1)]);
+    assert_eq!(results, (2, 1));
 
     Ok(())
 }
